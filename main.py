@@ -100,13 +100,15 @@ import re
 
 # re и рекурсия
 # Задача 1
-# def valid_num(tel):
-#     reg = r''
-#     return re.findall(reg, tel)
-#
-#
-# tel_num = input("Введите номер телефона: ")
-# print(valid_num(tel_num))
+def valid_num(tel):
+    reg = r'^\+?7\s*\(?\d{3}\)?\s*[\d\s-]{7,9}$'
+    return re.findall(reg, tel)[0]
+
+
+print(valid_num('+7 499 456-45-78'))
+print(valid_num('+74994564578'))
+print(valid_num('7 (499) 456 45 78'))
+print(valid_num('7 (499) 456-45-78'))
 
 # Задача 2
 # def neg_val(lst):
