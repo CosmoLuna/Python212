@@ -100,15 +100,15 @@ import re
 
 # re и рекурсия
 # Задача 1
-def valid_num(tel):
-    reg = r'^\+?7\s*\(?\d{3}\)?\s*[\d\s-]{7,9}$'
-    return re.findall(reg, tel)[0]
-
-
-print(valid_num('+7 499 456-45-78'))
-print(valid_num('+74994564578'))
-print(valid_num('7 (499) 456 45 78'))
-print(valid_num('7 (499) 456-45-78'))
+# def valid_num(tel):
+#     reg = r'^\+?7\s*\(?\d{3}\)?\s*[\d\s-]{7,9}$'
+#     return re.findall(reg, tel)[0]
+#
+#
+# print(valid_num('+7 499 456-45-78'))
+# print(valid_num('+74994564578'))
+# print(valid_num('7 (499) 456 45 78'))
+# print(valid_num('7 (499) 456-45-78'))
 
 # Задача 2
 # def neg_val(lst):
@@ -123,3 +123,32 @@ print(valid_num('7 (499) 456-45-78'))
 #
 # l1 = [3, -5, 11, 2, -7, 8, -2]
 # print(neg_val(l1))
+
+
+# Бинарный поиск
+from random import randint
+
+
+def my_sort(ls, item):
+    first = 0
+    last = len(ls) - 1
+    found = False
+    while first <= last and not found:
+        mid = (first + last) // 2
+        if ls[mid] == item:
+            found = True
+        else:
+            if item < ls[mid]:
+                last = mid - 1
+            else:
+                first = mid + 1
+    if found:
+        print("Число", item, "присутствует в списке.")
+    else:
+        print("Число", item, "не присутствует в списке.")
+
+
+my_list = [randint(1, 100) for i in range(10)]
+print(my_list)
+a = int(input("Введите число: "))
+my_sort(sorted(my_list), a)
