@@ -1,6 +1,5 @@
 # print('Hello')
 # print("Здесь будут домашние работы")
-import re
 
 # Методы строк
 # Задача 1
@@ -128,27 +127,143 @@ import re
 # Бинарный поиск
 from random import randint
 
+#
+# def my_sort(ls, item):
+#     first = 0
+#     last = len(ls) - 1
+#     found = False
+#     while first <= last and not found:
+#         mid = (first + last) // 2
+#         if ls[mid] == item:
+#             found = True
+#         else:
+#             if item < ls[mid]:
+#                 last = mid - 1
+#             else:
+#                 first = mid + 1
+#     if found:
+#         print("Число", item, "присутствует в списке.")
+#     else:
+#         print("Число", item, "не присутствует в списке.")
+#
+#
+# my_list = [randint(1, 100) for i in range(10)]
+# print(my_list)
+# a = int(input("Введите число: "))
+# my_sort(sorted(my_list), a)
 
-def my_sort(ls, item):
-    first = 0
-    last = len(ls) - 1
-    found = False
-    while first <= last and not found:
-        mid = (first + last) // 2
-        if ls[mid] == item:
-            found = True
-        else:
-            if item < ls[mid]:
-                last = mid - 1
-            else:
-                first = mid + 1
-    if found:
-        print("Число", item, "присутствует в списке.")
-    else:
-        print("Число", item, "не присутствует в списке.")
 
+# сортировка, поиск и файлы
+# Задача 1
+# def my_search(ls, item):
+#     pos = 0
+#     found = False
+#     while pos < len(ls) and not found:
+#         if ls[pos] == item:
+#             found = True
+#         else:
+#             pos += 1
+#     return found
+#
+#
+# my_list = [randint(1, 100) for i in range(10)]
+# print(my_list)
+# a = int(input("Введите число: "))
+# if my_search(my_list, a):
+#     print(f"Число {a} в списке присутствует")
+# else:
+#     print(f"Число {a} в списке отсутствует")
 
-my_list = [randint(1, 100) for i in range(10)]
-print(my_list)
-a = int(input("Введите число: "))
-my_sort(sorted(my_list), a)
+# Задача 2
+# f = open('mytext.txt', 'w')
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;")
+# a = int(input("Введите номер строки для удаления: "))
+# f.close()
+#
+# f = open('mytext.txt', "r")
+# read_f = f.readlines()
+# for i in range(len(read_f)):
+#     if i == a:
+#         read_f.remove(read_f[i-1])
+# print(read_f)
+# f.close()
+#
+# f = open('mytext.txt', 'w')
+# f.writelines(read_f)
+# f.close()
+
+# Задача 3
+# def my_search(ls, item):
+#     pos = 0
+#     found = False
+#     while pos < len(ls) and not found:
+#         if ls[pos] == item:
+#             found = True
+#         else:
+#             pos += 1
+#     return found
+#
+#
+# def up_sort(a):
+#     n = len(a)
+#     for i in range(n - 1):
+#         for j in range(n - i - 1):
+#             if a[j] > a[j + 1]:
+#                 a[j], a[j + 1] = a[j + 1], a[j]
+#     return a
+#
+#
+# def down_sort(a):
+#     n = len(a)
+#     for i in range(n - 1):
+#         for j in range(n - i - 1):
+#             if a[j] < a[j + 1]:
+#                 a[j], a[j + 1] = a[j + 1], a[j]
+#     return a
+#
+#
+# ls1 = [5, 9, 6, 7]
+# ls2 = [3, 11, 8]
+# ls3 = [2, 4]
+# ls4 = [10, 1, 12]
+# new_list = ls1 + ls2 + ls3 + ls4
+# print(ls1, ls2, ls3, ls4)
+# print(new_list)
+# print("1 - сортировка по убыванию\n2 - сортировка по возрастанию")
+# a = int(input("-> "))
+# if a == 1:
+#     print(down_sort(new_list))
+# elif a == 2:
+#     print(up_sort(new_list))
+# else:
+#     print("ошибка")
+#
+# b = int(input("Введите значение для поиска: "))
+# if my_search(new_list, b):
+#     print(f"Значение {b} найдено")
+# else:
+#     print(f"Значение {b} не найдено")
+
+# файлы
+# Задача 1
+# file1 = 'first.txt'
+# file2 = 'second.txt'
+# w_file = 'third.txt'
+# with open(file1, 'r') as f1, open(file2, 'r') as f2, open(w_file, 'w') as wf:
+#     for line in f1:
+#         wf.write(line)
+#     for line in f2:
+#         wf.write(line)
+
+# Задача 2
+import os
+import os.path
+import time
+# test = input("Введите путь к файлу: ")
+# a = os.path.exists(test)
+# print(a)
+# if a:
+#     print(os.path.dirname(test))
+#     print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getatime(test))))
+# else:
+#     print(f"Файла {test} не существует")
