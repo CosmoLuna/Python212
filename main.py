@@ -1,5 +1,11 @@
 # print('Hello')
 # print("Здесь будут домашние работы")
+import math
+# import re
+# from random import randint
+# import os
+# import os.path
+# import time
 
 # Методы строк
 # Задача 1
@@ -83,7 +89,6 @@
 
 # методы строк и re
 # Задача 1
-import re
 
 # def password_ok(pas):
 #     return re.findall(r'^[a-z\d@_-]{6,18}$', pas, re.IGNORECASE)
@@ -125,7 +130,6 @@ import re
 
 
 # Бинарный поиск
-from random import randint
 
 #
 # def my_sort(ls, item):
@@ -256,9 +260,7 @@ from random import randint
 #         wf.write(line)
 
 # Задача 2
-import os
-import os.path
-import time
+
 # test = input("Введите путь к файлу: ")
 # a = os.path.exists(test)
 # print(a)
@@ -267,3 +269,36 @@ import time
 #     print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getatime(test))))
 # else:
 #     print(f"Файла {test} не существует")
+
+# классы
+class Rectangle:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        print("Длина:", x)
+        print("Ширина:", y)
+
+    def s(self):
+        print("Площадь:", self.x * self.y)
+    def per(self):
+        print("Периметр:", (self.x + self.y) * 2)
+    def gep(self):
+        print("Гипотенуза:", round(math.sqrt(self.x**2 + self.y**2), 2))
+    def print_rec(self):
+        for _ in range(self.y):
+            for _ in range(self.x):
+                print("*", end='')
+            print()
+
+
+r1 = Rectangle(9, 3)
+r1.s()
+r1.per()
+r1.gep()
+r1.print_rec()
+
+r2 = Rectangle(10, 7)
+r2.s()
+r2.per()
+r2.gep()
+r2.print_rec()
