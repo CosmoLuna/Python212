@@ -271,34 +271,83 @@ import math
 #     print(f"Файла {test} не существует")
 
 # классы
-class Rectangle:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        print("Длина:", x)
-        print("Ширина:", y)
+# class Rectangle:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#         print("Длина:", x)
+#         print("Ширина:", y)
+#
+#     def s(self):
+#         print("Площадь:", self.x * self.y)
+#     def per(self):
+#         print("Периметр:", (self.x + self.y) * 2)
+#     def gep(self):
+#         print("Гипотенуза:", round(math.sqrt(self.x**2 + self.y**2), 2))
+#     def print_rec(self):
+#         for _ in range(self.y):
+#             for _ in range(self.x):
+#                 print("*", end='')
+#             print()
+#
+#
+# r1 = Rectangle(9, 3)
+# r1.s()
+# r1.per()
+# r1.gep()
+# r1.print_rec()
+#
+# r2 = Rectangle(10, 7)
+# r2.s()
+# r2.per()
+# r2.gep()
+# r2.print_rec()
 
-    def s(self):
-        print("Площадь:", self.x * self.y)
-    def per(self):
-        print("Периметр:", (self.x + self.y) * 2)
-    def gep(self):
-        print("Гипотенуза:", round(math.sqrt(self.x**2 + self.y**2), 2))
-    def print_rec(self):
-        for _ in range(self.y):
-            for _ in range(self.x):
-                print("*", end='')
-            print()
+
+# Property, staticmethod
+class Sphere:
+    def __init__(self, r, x, y, z):
+        self.__r = r
+        self.__x = x
+        self.__y = y
+        self.__z = z
+
+    @property
+    def radius(self):
+        return self.__r
+
+    @radius.setter
+    def radius(self, new_r):
+        self.__r = new_r
+
+    def get_volume(self):
+        return 4 / 3 * math.pi * self.__r**3
+
+    def get_square(self):
+        return 4 * math.pi * self.__r**2
+
+    def get_center(self):
+        return self.__x, self.__y, self.__z
+
+    def set_center(self, new_x, new_y, new_z):
+        self.__x = new_x
+        self.__y = new_y
+        self.__z = new_z
+
+    def is_point_inside(self, x, y, z):
+        if (x**2 + y**2 + z**2) < self.__r**2:
+            return True
+        else:
+            return False
 
 
-r1 = Rectangle(9, 3)
-r1.s()
-r1.per()
-r1.gep()
-r1.print_rec()
+r1 = Sphere(0.6, 0, 0, 0)
 
-r2 = Rectangle(10, 7)
-r2.s()
-r2.per()
-r2.gep()
-r2.print_rec()
+print("get_radius:", r1.radius)
+print("get_volume:", r1.get_volume())
+print("get_square:", r1.get_square())
+print("get_center:", r1.get_center())
+print("is_point_inside:", r1.is_point_inside(0, -1.5, 0))
+r1.radius = 1.6
+print("get_radius:", r1.radius)
+print("is_point_inside:", r1.is_point_inside(0, -1.5, 0))
