@@ -683,58 +683,129 @@
 # s2.show()
 
 
+# Перегрузка арифметических операторов
+# class Clock:
+#     __DAY = 86400
+#
+#     def __init__(self, sec: int):
+#         if not isinstance(sec, int):
+#             raise ValueError("Секунды должны быть целым числом")
+#         self.sec = sec % self.__DAY
+#
+#
+#     def get_format_time(self):
+#         s = self.sec % 60
+#         m = (self.sec // 60) % 60
+#         h = (self.sec // 3600) % 24
+#         return f"{Clock.__get_form(h)}:{Clock.__get_form(m)}:{Clock.__get_form(s)}"
+#
+#
+#     @staticmethod
+#     def __get_form(x):
+#         return str(x) if x > 9 else "0" + str(x)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типа Clock")
+#         return Clock(self.sec + other.sec)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типа Clock")
+#         return Clock(self.sec - other.sec)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типа Clock")
+#         return Clock(self.sec * other.sec)
+#
+#     def __floordiv__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типа Clock")
+#         return Clock(self.sec // other.sec)
+#
+#     def __mod__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типа Clock")
+#         return Clock(self.sec % other.sec)
+#
+#
+# c1 = Clock(600)
+# c2 = Clock(200)
+# print("c1:", c1.get_format_time())
+# c3 = c1 - c2
+# print("c1 - c2:", c3.get_format_time())
+# c4 = c1 * c2
+# print("c1 * c2:", c4.get_format_time())
+# c5 = c1 // c2
+# print("c1 // c2:", c5.get_format_time())
+# c6 = c1 % c2
+# print("c1 % c2:", c6.get_format_time())
+# c1 -= c2
+# print("c1 -= c2:", c1.get_format_time())
+# c1 *= c2
+# print("c1 *= c2:", c1.get_format_time())
+# c1 //= c2
+# print("c1 //= c2:", c1.get_format_time())
+# c1 = c1 % c2
+# print("c1 % c2:", c1.get_format_time())
 
-# class Human:
-#     def __init__(self, last_name, first_name, age):
-#         self.last_name = last_name
-#         self.first_name = first_name
-#         self.age = age
+
+# класс Point3D
+# class Point3D:
+#     def __init__(self, x, y, z):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#         ls = list[self.x, self.y, self.z]
 #
-#     def info(self):
-#         print(f"\n{self.last_name} {self.first_name} {self.age} ", end='')
+#     def print_point(self):
+#         print(f"{self.x}, {self.y}, {self.z}")
 #
+#     def __add__(self, other):
+#         return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
 #
-# class Student(Human):
-#     def __init__(self,  last_name, first_name, age, speciality, group, rating):
-#         self.speciality = speciality
-#         self.group = group
-#         self.rating = rating
-#         super().__init__(last_name, first_name, age)
+#     def __sub__(self, other):
+#         return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
 #
-#     def info(self):
-#         super().info()
-#         print(f"{self.speciality} {self.group} {self.rating} ", end='')
+#     def __mul__(self, other):
+#         return Point3D(self.x * other.x, self.y * other.y, self.z * other.z)
 #
+#     def __truediv__(self, other):
+#         return Point3D(self.x / other.x, self.y / other.y, self.z / other.z)
 #
-# class Teacher(Human):
-#     def __init__(self, last_name, first_name, age, speciality, exp):
-#         self.speciality = speciality
-#         self.exp = exp
-#         super().__init__(last_name, first_name, age)
+#     def __eq__(self, other):
+#         return self.x == other.x and self.y == other.y and self.z == other.z
 #
-#     def info(self):
-#         super().info()
-#         print(f"{self.speciality} {self.exp}", end=' ')
-#
-#
-# class Graduate(Student):
-#     def __init__(self, last_name, first_name, age, speciality, group, rating, topic):
-#         super().__init__(last_name, first_name, age, speciality, group, rating)
-#         self.topic = topic
-#
-#     def info(self):
-#         super().info()
-#         print(f'{self.topic}', end=' ')
+#     def __getitem__(self, item):
+#         if item == self.x:
+#             return self.x
+#         elif item == self.y:
+#             return self.y
+#         elif item == self.z:
+#             return self.z
+#         return "Неверная координата"
 #
 #
-# group1 = [
-#     Student("Батодалаев", "Даши", 16, "ГК", "Web_011", 5),
-#     Student("Загидуллин", "Линар", 32, "РПО", "PD_011", 5),
-#     Graduate("Шугани", "Сергей", 15, "РПО", "PD_011", 5, "Защита персональных данных"),
-#     Teacher("Даньшин", "Андрей", 38, "Астрофизика", 110),
-#     Student("Маркин", "Даниил", 17, "ГК", "Python_011", 5),
-#     Teacher("Башкиров", "Алексей", 45, "Разработка приложений", 20)
-# ]
-#
-# for i in group1:
-#     i.info()
+# p1 = Point3D(12, 15, 18)
+# p2 = Point3D(6, 3, 9)
+# p1.print_point()
+# p2.print_point()
+# p3 = p1 + p2
+# p3.print_point()
+# p4 = p1 - p2
+# p4.print_point()
+# p5 = p1 * p2
+# p5.print_point()
+# p6 = p1 / p2
+# p6.print_point()
+# if p1 == p2:
+#     print("Равенство координат: True")
+# else:
+#     print("Равенство координат: False")
+# print(p1.x, p2.x)
+# print(p1.y, p2.y)
+# print(p1.z, p2.z)
+# p1.x = 20
+# print(p1.x)
+# p1.print_point()

@@ -74,6 +74,3 @@ import math
 #
 # pt = Point(1, 2)
 # print(pt.length)
-
-
-
