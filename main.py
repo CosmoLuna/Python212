@@ -1,6 +1,6 @@
 # print('Hello')
 # print("Здесь будут домашние работы")
-# import math
+import math
 # import re
 # from random import randint
 # import os
@@ -809,3 +809,142 @@
 # p1.x = 20
 # print(p1.x)
 # p1.print_point()
+
+
+# класс фигуры
+# class Shape:
+#     def __init__(self, color):
+#         self.color = color
+#
+#     def draw(self):
+#         raise NotImplementedError("В дочернем классе должен быть определен метод draw()")
+#
+#     def param(self):
+#         raise NotImplementedError("В дочернем классе должен быть метод param()")
+#
+#     def sq(self):
+#         raise NotImplementedError("В дочернем классе должен быть метод sq()")
+#
+#     def info(self):
+#         print(f"Цвет: {self.color}")
+#
+#
+# class Square(Shape):
+#     def __init__(self, x, color):
+#         super().__init__(color)
+#         self.x = x
+#
+#     def draw(self):
+#         for i in range(self.x):
+#             print(self.x * "*")
+#
+#     def param(self):
+#         return self.x * 4
+#
+#     def sq(self):
+#         return self.x ** 2
+#
+#     def info(self):
+#         print(f"===Квадрат===\nСторона: {self.x}\nПериметр: {Square.param(self)}\nПлощадь: {Square.sq(self)}")
+#         super().info()
+#
+#
+# class Rect(Shape):
+#     def __init__(self, x, y, color):
+#         super().__init__(color)
+#         self.x = x
+#         self.y = y
+#
+#     def draw(self):
+#         for i in range(self.y):
+#             print(self.x * "*")
+#
+#     def param(self):
+#         return self.x * 2 + self.y * 2
+#
+#     def sq(self):
+#         return self.x * self.y
+#
+#     def info(self):
+#         print(f"===Прямоугольник===\nДлина: {self.x}\nШирина: {self.y}\nПериметр: {Rect.param(self)}\nПлощадь: {Rect.sq(self)}")
+#         super().info()
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, x, y, z, color):
+#         super().__init__(color)
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     def draw(self):
+#         rows = []
+#         for i in range(self.y):
+#             rows.append(" " * i + "*" * (self.x - 2 * i))
+#         print("\n".join(reversed(rows)))
+#
+#     def param(self):
+#         return self.x + self.y + self.z
+#
+#     def sq(self):
+#         p = (self.x + self.y + self.z) / 2
+#         return round(math.sqrt(p * (p - self.x) * (p - self.y) * (p - self.z)), 2)
+#
+#     def info(self):
+#         print(f"===Треугольник===\nСторона: {self.x}\nСторона: {self.y}\nСторона: {self.z}\nПериметр: {Triangle.param(self)}\nПлощадь: {Triangle.sq(self)}")
+#         super().info()
+#
+#
+# sh1 = Square(3, "red")
+# sh1.info()
+# sh1.draw()
+#
+# sh2 = Rect(7, 3, "green")
+# sh2.info()
+# sh2.draw()
+#
+# sh3 = Triangle(11, 6, 6, "yellow")
+# sh3.info()
+# sh3.draw()
+
+
+# существующий треугольник
+# class Valid:
+#     def __set_name__(self, owner, name):
+#         self.__name = name
+#
+#     def __get__(self, instance, owner):
+#         return instance.__dict__[self.__name]
+#
+#     def __set__(self, instance, value):
+#         if not isinstance(value, int) or value < 0:
+#             raise ValueError(f"сторона {self.__name} должна быть неотрицательным целым числом")
+#         instance.__dict__[self.__name] = value
+#
+#
+# class Triangle:
+#     a = Valid()
+#     b = Valid()
+#     c = Valid()
+#
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     def tri_exist(self):
+#         if self.a + self.b < self.c or self.a + self.c < self.b or self.c + self.b < self.a:
+#             print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) не существует")
+#         else:
+#             print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) существует")
+#
+#
+# t1 = Triangle(2, 5, 6)
+# t1.b = 10
+# print(t1.a, t1.b, t1.c)
+# t1.tri_exist()
+# t2 = Triangle(3, 9, 10)
+# print(t2.a, t2.b, t2.c)
+# t2.tri_exist()
+
+
