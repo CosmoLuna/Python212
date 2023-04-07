@@ -948,3 +948,42 @@ import math
 # t2.tri_exist()
 
 
+import json
+from random import choice
+
+
+def gen_num():
+    num = ''
+    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+    while len(num) != 10:
+        num += choice(nums)
+
+    return num
+
+
+def gen_person():
+    name = ''
+    tel = ''
+
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+    while len(name) != 7:
+        name += choice(letters)
+
+    while len(tel) != 10:
+        tel += choice(nums)
+
+    person = {
+        'name': name,
+        'tel': tel
+    }
+    return person
+
+
+my_dict = {gen_num(): gen_person() for i in range(5)}
+print(my_dict)
+
+with open('person.json', 'w') as f:
+    json.dump(my_dict, f, indent=2)
