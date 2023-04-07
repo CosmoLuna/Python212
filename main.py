@@ -948,42 +948,127 @@ import math
 # t2.tri_exist()
 
 
-import json
-from random import choice
+# import json
+# from random import choice
+#
+#
+# def gen_num():
+#     num = ''
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+#
+#     while len(num) != 10:
+#         num += choice(nums)
+#
+#     return num
+#
+#
+# def gen_person():
+#     name = ''
+#     tel = ''
+#
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#
+#     while len(tel) != 10:
+#         tel += choice(nums)
+#
+#     person = {
+#         'name': name,
+#         'tel': tel
+#     }
+#     return person
+#
+#
+# my_dict = {gen_num(): gen_person() for i in range(5)}
+# print(my_dict)
+#
+# with open('person.json', 'w') as f:
+#     json.dump(my_dict, f, indent=2)
 
 
-def gen_num():
-    num = ''
-    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-    while len(num) != 10:
-        num += choice(nums)
-
-    return num
+# data = {}
 
 
-def gen_person():
-    name = ''
-    tel = ''
-
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-    while len(name) != 7:
-        name += choice(letters)
-
-    while len(tel) != 10:
-        tel += choice(nums)
-
-    person = {
-        'name': name,
-        'tel': tel
-    }
-    return person
-
-
-my_dict = {gen_num(): gen_person() for i in range(5)}
-print(my_dict)
-
-with open('person.json', 'w') as f:
-    json.dump(my_dict, f, indent=2)
+# class CountryCapital:
+#     @staticmethod
+#     def load(file_name):
+#         try:
+#             data = json.load(open(file_name))
+#         except FileNotFoundError:
+#             data = {}
+#         finally:
+#             return data
+#
+#
+#     @staticmethod
+#     def add_country(file_name):
+#         new_country = input("Введите название страны: ")
+#         new_capital = input("Введите название столицы: ")
+#         data1 = CountryCapital.load(file_name)
+#         data1[new_country] = new_capital
+#
+#         with open(file_name, 'w') as f:
+#             json.dump(data1, f, indent=2)
+#
+#     @staticmethod
+#     def load_from_file(file_name):
+#         with open(file_name) as f:
+#             print(json.load(f))
+#
+#     @staticmethod
+#     def delete_country(file_name):
+#         del_country = input("Введите название страны: ")
+#         data1 = CountryCapital.load(file_name)
+#
+#         if del_country in data1:
+#             del data1[del_country]
+#             with open(file_name, 'w') as f:
+#                 json.dump(data1, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#     @staticmethod
+#     def surch_data(file_name):
+#         data1 = CountryCapital.load(file_name)
+#         country = input("Введите название страны: ")
+#         if country in data1:
+#             print(f"Страна {country}, столица {data1[country]} есть в словаре")
+#         else:
+#             print("Такой страны в базе нет")
+#
+#     @staticmethod
+#     def edit_data(file_name):
+#         country = input("Введите название страны для редактирования: ")
+#         new_capital = input("Введите новое название столицы: ")
+#         data1 = CountryCapital.load(file_name)
+#
+#         if country in data1:
+#             data1[country] = new_capital
+#             with open(file_name, 'w') as f:
+#                 json.dump(data1, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#
+# file = "list_capital.json"
+# while True:
+#     index = input('Выбор действия:\n1 - добавление данных\n2 - удаление данных\n'
+#                   '3 - поиск данных\n4 - редактирование данных\n5 - просмотр данных\n'
+#                   '6 - завершение работы\nВвод: ')
+#     if index == "1":
+#         CountryCapital.add_country(file)
+#     elif index == "2":
+#         CountryCapital.delete_country(file)
+#     elif index == "3":
+#         CountryCapital.surch_data(file)
+#     elif index == "4":
+#         CountryCapital.edit_data(file)
+#     elif index == "5":
+#         CountryCapital.load_from_file(file)
+#     elif index == "6":
+#         break
+#     else:
+#         print("Введен некорректный номер")
