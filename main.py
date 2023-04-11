@@ -1110,3 +1110,67 @@ import math
 #
 # if __name__ == '__main__':
 #     main()
+
+
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# def write_csv(data):
+#     with open('sandals.csv', 'a') as f:
+#         writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#         writer.writerow((data['name'], data['color'], data['price'], data['url']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     items = soup.find_all("div", class_="Grid__Cell 1/2--phone 1/2--tablet-and-up 1/4--desk")
+#     for item in items:
+#         try:
+#             name = item.find("h2").find('span').text
+#         except ValueError:
+#             name = ''
+#
+#         try:
+#             color = item.find('span', class_='ProductItem__TitleColor').text
+#         except ValueError:
+#             color = ''
+#
+#         try:
+#             price = item.find('span', class_='ProductItem__Price Price').text
+#         except ValueError:
+#             price = ''
+#
+#         try:
+#             url = 'https://www.liewood.com' + item.find('h2', class_='ProductItem__Title u-h7').find('a').get('href')
+#         except ValueError:
+#             url = ''
+#
+#         data = {'name': name, 'color': color, 'price': price, 'url': url}
+#         write_csv(data)
+#
+#
+#
+#
+# def main():
+#     for i in range(1, 5):
+#         url = f'https://www.liewood.com/collections/sandals?page={i}'
+#         get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+#
+#
+# from parse import Parser
+#
+#
+# def main():
+#     pars = Parser("https://www.liewood.com/collections/sandals?page=", "lwsandals.txt")
+#     pars.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
+
