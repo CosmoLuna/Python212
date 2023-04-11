@@ -1072,3 +1072,41 @@ import math
 #         break
 #     else:
 #         print("Введен некорректный номер")
+
+
+# import requests
+# from bs4 import BeautifulSoup
+# import csv
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# def write_csv(data):
+#     with open('games.csv', 'a') as f:
+#         writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#
+#         writer.writerow((data['name'], data['url'], data['author'], data['type']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     games = soup.find_all('div', class_='examples-item-wrapper')
+#     for game in games:
+#         name = game.find('div', class_='example-title').text
+#         url = game.find('a').get('href')
+#         author = game.find('div', class_='example-author').find('a').text
+#         gtype = game.find('div', class_='example-template').text
+#         data = {'name': name, 'url': url, 'author': author, 'type': gtype}
+#         write_csv(data)
+#
+#
+# def main():
+#     url = 'https://wordwall.net/ru/community'
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
