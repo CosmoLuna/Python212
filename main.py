@@ -1195,29 +1195,40 @@ import math
 #     db_is_created = os.path.exists(DATABASE_NAME)
 #     if not db_is_created:
 #         db_creator.create_database()
+#
+#
+from jinja2 import Environment, FileSystemLoader
+#
+# menu = [
+#     {'ref': 'index', 'line': 'Главная'},
+#     {'ref': 'news', 'line': 'Новости'},
+#     {'ref': 'about', 'line': 'О компании'},
+#     {'ref': 'shop', 'line': 'Магазин'},
+#     {'ref': 'contacts', 'line': 'Контакты'}
+# ]
+#
+# link = """<ul>
+# {% for i in menu -%}
+# {% if i.ref == 'index' -%}
+# <li><a href="/{{ i['ref'] }}" class="active">{{i['line']}}</a></li>
+# {% else -%}
+# <li><a href="/{{ i['ref'] }}">{{i['line']}}</a></li>
+# {% endif -%}
+# {% endfor -%}
+# </ul>"""
+#
+# tm = Template(link)
+# msg = tm.render(menu=menu)
+#
+# print(msg)
 
 
-from jinja2 import Template
 
-menu = [
-    {'ref': 'index', 'line': 'Главная'},
-    {'ref': 'news', 'line': 'Новости'},
-    {'ref': 'about', 'line': 'О компании'},
-    {'ref': 'shop', 'line': 'Магазин'},
-    {'ref': 'contacts', 'line': 'Контакты'}
-]
 
-link = """<ul>
-{% for i in menu -%}
-{% if i.ref == 'index' -%}
-<li><a href="/{{ i['ref'] }}" class="active">{{i['line']}}</a></li>
-{% else -%}    
-<li><a href="/{{ i['ref'] }}">{{i['line']}}</a></li>
-{% endif -%}
-{% endfor -%}
-</ul>"""
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
 
-tm = Template(link)
-msg = tm.render(menu=menu)
+tm = env.get_template('main.html')
+msg = tm.render(title='Домашнее задание')
 
 print(msg)
